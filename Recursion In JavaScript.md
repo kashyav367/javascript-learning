@@ -37,7 +37,7 @@
     - Execution resumes where it left off
 
 5. Recursive approach for nested objects (company example)
-
+```js
 let company = {
   sales: [{ name: 'John', salary: 1000 }, { name: 'Alice', salary: 1600 }],
   development: {
@@ -45,6 +45,7 @@ let company = {
     internals: [{ name: 'Jack', salary: 1300 }]
   }
 };
+```
 
 This structure is recursive by nature
 Object → values → arrays → objects → arrays → …
@@ -52,6 +53,7 @@ Object → values → arrays → objects → arrays → …
 So recursion is clearer and safer than iteration.
 
 Typical recursive solution:
+```js
 function sumSalaries(department) {
   if (Array.isArray(department)) {
     return department.reduce((sum, emp) => sum + emp.salary, 0);
@@ -63,6 +65,7 @@ function sumSalaries(department) {
     return sum;
   }
 }
+```
 
 This is exactly the kind of problem recursion is meant for.
 
@@ -78,4 +81,5 @@ This is exactly the kind of problem recursion is meant for.
   - Not built-in
   - Higher memory usage
   - Poor cache performance
+
   - Rarely used in real JS applications
